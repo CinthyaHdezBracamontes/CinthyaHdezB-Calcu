@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cinthya Hdez B - Calculadora</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+        <h1>Calculadora - CinthyaHdezB</h1>
+
+        <div class="col-5">
+
+            <div class="mt-1">
+                <input type="text" id="resultado">
+            </div>
+
+            <div class="mt-1">
+                <button class="btn btn-primary" onclick="jboton(1)">1</button>
+                <button class="btn btn-primary" onclick="jboton(2)">2</button>
+                <button class="btn btn-primary" onclick="jboton(3)">3</button>
+                <button class="btn btn-danger" onclick="jsuma()"> + </button>
+            </div>
+
+            <div class="mt-1">
+                <button class="btn btn-primary" onclick="jboton(4)">4</button>
+                <button class="btn btn-primary" onclick="jboton(5)">5</button>
+                <button class="btn btn-primary" onclick="jboton(6)">6</button>
+                <button class="btn btn-danger" onclick="jresta()">-</button>
+            </div>
+
+            <div class="mt-1">
+                <button class="btn btn-primary" onclick="jboton(7)">7</button>
+                <button class="btn btn-primary" onclick="jboton(8)">8</button>
+                <button class="btn btn-primary" onclick="jboton(9)">9</button>
+                <button class="btn btn-danger" onclick="jmultiplica()">*</button>
+            </div>
+
+            <div class="mt-1">
+                <button class="btn btn-primary" onclick="jboton(0)">0</button>
+                <button class="btn btn-danger" onclick="jdivide()">/</button>
+                <button class="btn btn-warning" onclick="jborrar()">C</button>
+                <button class="btn btn-warning" onclick="jigual()">=</button>
+            </div>
+
+            <div class="mt-1">
+                <button class="btn btn-primary" onclick="jpotencia()">P</button>
+                <button class="btn btn-danger" onclick="jraiz(25)">√</button>
+                <button class="btn btn-warning" onclick="jcoseno()">Cos</button>
+                <button class="btn btn-warning" onclick="jtangente()">Tan</button>
+            </div>
+        </div>
+
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+
+    <script>
+        $("#resultado").val("Cinthya Hdez B");
+
+        //22 + 4 =
+
+        var num = "";
+        var val1 = "";
+        var oper = 0; // 1 - suma 2 - resta 3
+        var pow = 2 ** 3;
+        var raiz = Math.sqrt(25);            
+        var cos = Math.cos(30); 
+
+        function jigual(){
+            if(oper ==1){
+                tmp = parseInt(val1) + parseInt(num);
+                $("#resultado").val( tmp )
+                num = tmp;
+            }
+            oper = 0;
+        }
+
+        function jsuma(){
+            val1 = num;
+            oper = 1;
+            jborrar();
+        }
+
+        function jresta(){
+            val1=num;
+            oper=2;
+            jborrar();
+        }
+
+        function jmultiplica(){
+            val1=num;
+            oper=3;
+            jborrar();
+        }
+
+        function jdivide(){
+            val1=num;
+            oper=4;
+            jborrar();
+        }
+
+        function jpotencia(){
+            val1=num;
+            oper=pow;
+            jborrar();
+        }
+
+        function jraiz(){
+            val1=num;
+            oper=raiz;
+            jborrar();
+        }
+
+        function jcoseno(){
+            val1=num;
+            oper=cos;
+            jborrar();
+        }
+
+        function jtangente(degrees) {
+            return Math.tan(degrees * Math.PI / 180);
+        }
+
+        function jboton( valor ){
+            //alert( valor );
+            num = num + valor;
+            $("#resultado").val( num );
+        }
+
+        function jborrar(){
+            $("#resultado").val("");
+            num = "";
+        }
+
+    </script>
+  </body>
+</html>
